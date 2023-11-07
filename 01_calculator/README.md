@@ -1,4 +1,4 @@
-<center><img src=".\src\assets\assetsReadme\Screenshot_1.png"></center>
+<center><img src=".\src\assets\Screenshot_1.png"></center>
 
 > Status: Completed ✅
 
