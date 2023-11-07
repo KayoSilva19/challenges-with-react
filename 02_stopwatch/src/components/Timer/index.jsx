@@ -17,6 +17,8 @@ export function Timer() {
     return `${minutes}:${seconds}:${centiSeconds}`
   }
 
+  document.title = formatTime()
+
   const startTime = (interval) => {
     return setInterval(() => {
       setMilliseconds((prevMilliseconds) => prevMilliseconds + 10)
