@@ -14,4 +14,4 @@
 </table>
 
 ## Project link running:
-<a target="_blank" href="https://tailwindcss-ui-taupe.vercel.app/">Project Link</a>
+<a target="_blank" href="https://challenges-with-react-eight.vercel.app/">Project Link</a>
