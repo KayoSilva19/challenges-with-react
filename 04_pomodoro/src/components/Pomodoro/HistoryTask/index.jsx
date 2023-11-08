@@ -31,7 +31,7 @@ export function HistoryTask({ task }) {
               >
                 Histórico
               </Box>
-              <AccordionIcon />
+              <AccordionIcon color="gray.100" />
             </AccordionButton>
           </h2>
           <AccordionPanel pb={4}>
@@ -51,7 +51,11 @@ export function HistoryTask({ task }) {
                           <Td color="gray.100" fontWeight="semibold">
                             {task.task}
                           </Td>
-                          <Td color="red.500">{task.userTime}:00 minuto(s)</Td>
+                          <Td color="red.500" fontWeight="semibold">
+                            {task.userTime.length > 1
+                              ? `${task.userTime}:00 minutos`
+                              : `${task.userTime}:00 minuto`}
+                          </Td>
                         </Tr>
                       )
                     })}

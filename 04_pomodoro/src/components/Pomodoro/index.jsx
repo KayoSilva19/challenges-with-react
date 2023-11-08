@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Container,
   Flex,
@@ -14,6 +15,7 @@ import {
 import { useEffect, useState } from 'react'
 import { TimerFinishedAlert } from './TimerFinishedAlert'
 import { HistoryTask } from './HistoryTask'
+import { PopOverStats } from './PopOverStats'
 
 export function Pomodoro() {
   const [minutes, setMinutes] = useState(0)
@@ -21,7 +23,7 @@ export function Pomodoro() {
   const [isActive, setIsActive] = useState(false)
   const [alertIsActive, setAlertIsActive] = useState(false)
   const [task, setTask] = useState('')
-  const [userTime, setUserTime] = useState('')
+  const [userTime, setUserTime] = useState(0)
   const [validation, setValidation] = useState(true)
   const [historyTask, setHistoryTask] = useState([])
 
@@ -54,7 +56,7 @@ export function Pomodoro() {
   }, [isActive, minutes, seconds, alertIsActive, historyTask, task, userTime])
 
   function toggleTime() {
-    if (task === '' || userTime === '') {
+    if (task === '' || userTime === '' || userTime === 0 || minutes === 0) {
       return setValidation(false)
     }
 
@@ -88,15 +90,20 @@ export function Pomodoro() {
           time={userTime}
         />
       </Slide>
-      <Flex width="100%" maxWidth="580" direction="column" gap={4} mt={120}>
-        <Heading color="red.500">Pomodoro</Heading>
-        <Container px={0} mx={0}>
+      <Flex maxWidth="620" width="100%" direction="column" gap={4} mt={120}>
+        <Flex justifyContent="space-between" alignItems="center">
+          <Heading color="red.500" fontSize="36">
+            Pomodoro
+          </Heading>
+          <PopOverStats tasks={historyTask} />
+        </Flex>
+        <Flex direction="column">
           <Text
             bg="black"
             textAlign="center"
             borderRadius={8}
             color="gray.200"
-            fontSize="64"
+            fontSize="78"
             py={6}
             fontWeight="bold"
           >
@@ -105,7 +112,7 @@ export function Pomodoro() {
           </Text>
           <FormControl mt={8}>
             <Flex direction="column" gap={8}>
-              <Container m={0} p={0}>
+              <Flex direction="column">
                 <FormLabel fontSize={18} color="gray.100">
                   Nome da tarefa
                 </FormLabel>
@@ -119,8 +126,8 @@ export function Pomodoro() {
                   onChange={handleAddTask}
                   isDisabled={isActive}
                 />
-              </Container>
-              <Container m={0} p={0}>
+              </Flex>
+              <Flex direction="column">
                 <FormLabel fontSize={18} color="gray.100">
                   Definir tempo (minutos)
                 </FormLabel>
@@ -146,10 +153,10 @@ export function Pomodoro() {
                 ) : (
                   ''
                 )}
-              </Container>
+              </Flex>
             </Flex>
           </FormControl>
-        </Container>
+        </Flex>
         <HStack mt={4}>
           <Button
             onClick={toggleTime}
