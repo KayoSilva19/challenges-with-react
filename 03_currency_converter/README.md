@@ -1,8 +1,19 @@
-# React + Vite
+<center><img src=".\src\assets\Screenshot_1.png"></center>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Status: Completed ✅
 
-Currently, two official plugins are available:
+### Currency converter
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used:
+
+<table>
+  <tr>
+    <td>React</td>
+    <td>Tailwind CSS</td>
+    <td>Axios</td>
+    <td>phosphoricons</td>
+  </tr>
+</table>
+
+## Project link running:
+<a target="_blank" href="https://challenges-with-react-9dq9.vercel.app/">Project Link</a>
