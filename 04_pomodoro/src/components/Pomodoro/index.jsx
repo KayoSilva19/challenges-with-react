@@ -38,7 +38,7 @@ export function Pomodoro() {
         } else {
           setseconds(seconds - 1)
         }
-      }, 10)
+      }, 1000)
     } else if (minutes === 0 && seconds === 0 && isActive) {
       setAlertIsActive(true)
 
