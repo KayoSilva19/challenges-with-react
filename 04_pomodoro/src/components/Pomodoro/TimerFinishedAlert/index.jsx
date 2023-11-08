@@ -2,6 +2,7 @@ import { Text, Flex, Button } from '@chakra-ui/react'
 import { AiFillAlert } from 'react-icons/ai'
 
 export function TimerFinishedAlert({ time, onClose }) {
+  console.log(time)
   const textValidationNumber =
     time > 1
       ? `Parabéns ciclo de ${time} minutos finalizado!`
