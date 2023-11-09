@@ -1,8 +1,40 @@
-# React + Vite
+<center><img src=".\src\assets\Screenshot_1.png"></center>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Status: Completed ✅
 
-Currently, two official plugins are available:
+### Pomodoro
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Functionalities:
+ * Start Pomodoro
+ * Pause Pomodoro
+ * Reset pomodoro
+ * Alert after task completion
+ * History of tasks performed
+ * Minutes and hours worked report
+ * Total tasks performed
+   
+## Technologies Used:
+
+<table>
+  <tr>
+    <td>React</td>
+    <td>Chakra UI</td>
+    <td>React Icons</td>
+  </tr>
+</table>
+
+## Installation
+
+## Running the project
+  * Clone the project repository on GitHub.
+  * Navigate to the project directory.
+  * Run the following command to install the dependencies:
+
+```
+$ npm install
+```
+
+## Running the project
+```
+$ npm run dev
+```
