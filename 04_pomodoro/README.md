@@ -24,8 +24,6 @@
 </table>
 
 ## Installation
-
-## Running the project
   * Clone the project repository on GitHub.
   * Navigate to the project directory.
   * Run the following command to install the dependencies:
