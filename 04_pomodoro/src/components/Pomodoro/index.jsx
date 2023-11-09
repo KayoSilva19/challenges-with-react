@@ -41,7 +41,7 @@ export function Pomodoro() {
 
         document.title = `${String(minutes).padStart(2, '0')}:
         ${String(seconds).padStart(2, '0')}`
-      }, 10)
+      }, 1000)
     } else if (minutes === 0 && seconds === 0 && isActive) {
       setAlertIsActive(true)
 
