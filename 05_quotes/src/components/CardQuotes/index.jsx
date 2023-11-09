@@ -18,8 +18,12 @@ export function CardQuotes() {
           <Heading size="lg"> Citações</Heading>
         </CardHeader>
         <CardBody>
-          <Text>View a summary of all your customers over the last month.</Text>
-          <Text>Citação</Text>
+          <Text fontSize="20" maxWidth="360">
+            View a summary of all your customers over the last month.
+          </Text>
+          <Text mt="2" color="gray.500">
+            - Citação
+          </Text>
         </CardBody>
         <CardFooter gap={4}>
           <Button bg="purple.500" color="gray.100" colorScheme="purple">
@@ -36,6 +40,7 @@ export function CardQuotes() {
           fontWeight="semibold"
           fontSize="18"
           colorScheme="blue"
+          mt="4"
         >
           Próxima Citação
         </Button>
