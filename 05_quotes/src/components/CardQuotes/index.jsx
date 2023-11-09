@@ -9,18 +9,32 @@ import {
   Text,
 } from '@chakra-ui/react'
 
-import citacoes from '../../data/dataQuotes'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
-export function CardQuotes() {
-  const [indice, setIndice] = useState(0)
+export function CardQuotes({ text, author, handleNextQuote }) {
+  const [translate, setTranslate] = useState('')
 
-  function handleNextQuote() {
-    if (indice === 11) {
-      return setIndice(0)
-    }
-    setIndice(indice + 1)
+  useEffect(() => {
+    setTranslate('')
+  }, [text])
+
+  function translateQuote(idioma) {
+    axios
+      .post('https://libretranslate.de/translate', {
+        q: text,
+        source: 'pt',
+        target: idioma,
+      })
+      .then(async function (response) {
+        const data = await response.json()
+        setTranslate(data.translatedText)
+      })
+      .catch(function (error) {
+        console.error('Erro ao traduzir citação:', error)
+      })
   }
+
   return (
     <SimpleGrid mt={10}>
       <Card height="450">
@@ -29,17 +43,27 @@ export function CardQuotes() {
         </CardHeader>
         <CardBody>
           <Text fontSize="20" maxWidth="360">
-            {citacoes[indice].texto}
+            {translate === true ? translate : text}
           </Text>
           <Text mt="2" color="gray.500">
-            - {citacoes[indice].autor}
+            - {author}
           </Text>
         </CardBody>
         <CardFooter gap={4}>
-          <Button bg="purple.500" color="gray.100" colorScheme="purple">
+          <Button
+            bg="purple.500"
+            color="gray.100"
+            colorScheme="purple"
+            onClick={() => translateQuote('en')}
+          >
             Traduzir para Inglês
           </Button>
-          <Button bg="blackAlpha.700" color="gray.100" colorScheme="blackAlpha">
+          <Button
+            bg="blackAlpha.700"
+            color="gray.100"
+            colorScheme="blackAlpha"
+            onClick={() => translateQuote('es')}
+          >
             Traduzir para Espanhol
           </Button>
         </CardFooter>
