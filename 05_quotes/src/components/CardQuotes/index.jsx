@@ -4,25 +4,35 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  Flex,
   Heading,
   SimpleGrid,
   Text,
 } from '@chakra-ui/react'
 
+import citacoes from '../../data/dataQuotes'
+import { useState } from 'react'
+
 export function CardQuotes() {
+  const [indice, setIndice] = useState(0)
+
+  function handleNextQuote() {
+    if (indice === 11) {
+      return setIndice(0)
+    }
+    setIndice(indice + 1)
+  }
   return (
     <SimpleGrid mt={10}>
-      <Card>
+      <Card height="450">
         <CardHeader>
           <Heading size="lg"> Citações</Heading>
         </CardHeader>
         <CardBody>
           <Text fontSize="20" maxWidth="360">
-            View a summary of all your customers over the last month.
+            {citacoes[indice].texto}
           </Text>
           <Text mt="2" color="gray.500">
-            - Citação
+            - {citacoes[indice].autor}
           </Text>
         </CardBody>
         <CardFooter gap={4}>
@@ -41,6 +51,7 @@ export function CardQuotes() {
           fontSize="18"
           colorScheme="blue"
           mt="4"
+          onClick={handleNextQuote}
         >
           Próxima Citação
         </Button>
