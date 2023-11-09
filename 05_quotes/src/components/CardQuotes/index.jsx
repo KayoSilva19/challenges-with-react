@@ -13,48 +13,68 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 export function CardQuotes({ text, author, handleNextQuote }) {
-  const [translate, setTranslate] = useState('')
+  const [translateFrom, setTranslateFrom] = useState('pt-BR')
+  const [translateTo, setTranslateTo] = useState('')
 
   useEffect(() => {
-    setTranslate('')
+    setTranslateTo('')
+    setTranslateFrom('pt-BR')
   }, [text])
 
-  function translateQuote(idioma) {
+  function translateQuote(translateTo) {
     axios
-      .post('https://libretranslate.de/translate', {
-        q: text,
-        source: 'pt',
-        target: idioma,
+      .get(
+        `https://api.mymemory.translated.net/get?q=${text}&langpair=${translateFrom}|${translateTo}`,
+      )
+      .then(async (response) => {
+        const data = response.data.responseData.translatedText
+        const setFromData = response.data.matches.map(
+          (matches) => matches.target,
+        )[0]
+        setTranslateTo(await data)
+        setTranslateFrom(await setFromData)
       })
-      .then(async function (response) {
-        const data = await response.json()
-        setTranslate(data.translatedText)
-      })
+
       .catch(function (error) {
-        console.error('Erro ao traduzir citação:', error)
+        console.error(error)
       })
   }
 
   return (
     <SimpleGrid mt={10}>
-      <Card height="450">
+      <Card min-height="450">
         <CardHeader>
           <Heading size="lg"> Citações</Heading>
         </CardHeader>
         <CardBody>
           <Text fontSize="20" maxWidth="360">
-            {translate === true ? translate : text}
+            {translateTo !== '' ? translateTo : text}
           </Text>
           <Text mt="2" color="gray.500">
             - {author}
           </Text>
+          {translateTo !== '' ? (
+            <Button
+              bg="transparent"
+              color="blue.400"
+              colorScheme="transparent"
+              onClick={() => translateQuote('pt-BR')}
+              p="0"
+              mt={2}
+              fontWeight="medium"
+            >
+              Traduzir para Português Br
+            </Button>
+          ) : (
+            ''
+          )}
         </CardBody>
-        <CardFooter gap={4}>
+        <CardFooter gap={4} py="0">
           <Button
             bg="purple.500"
             color="gray.100"
             colorScheme="purple"
-            onClick={() => translateQuote('en')}
+            onClick={() => translateQuote('en-GB')}
           >
             Traduzir para Inglês
           </Button>
@@ -62,7 +82,7 @@ export function CardQuotes({ text, author, handleNextQuote }) {
             bg="blackAlpha.700"
             color="gray.100"
             colorScheme="blackAlpha"
-            onClick={() => translateQuote('es')}
+            onClick={() => translateQuote('es-ES')}
           >
             Traduzir para Espanhol
           </Button>
@@ -74,7 +94,7 @@ export function CardQuotes({ text, author, handleNextQuote }) {
           fontWeight="semibold"
           fontSize="18"
           colorScheme="blue"
-          mt="4"
+          mt="8"
           onClick={handleNextQuote}
         >
           Próxima Citação
