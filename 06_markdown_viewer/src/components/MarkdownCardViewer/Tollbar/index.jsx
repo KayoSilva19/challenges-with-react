@@ -11,10 +11,45 @@ import {
   SparklesIcon,
 } from '@heroicons/react/24/solid'
 
-export const Tollbar = () => {
+export const Tollbar = ({ insertText }) => {
   const [selectedButton, setSelectedButton] = useState('')
 
   const stylesButton = `py-2 hover:text-gray-50 hover:bg-gray-950 rounded transition-al font-medium text-zinc-800 flex justify-start pl-2 gap-2 items-center  `
+
+  const styleIcons = 'h-6 w-6 text-blue-500'
+
+  function handleClick(e) {
+    setSelectedButton(e.target.value)
+
+    switch (e.target.value) {
+      case 'h1':
+        insertText('# ', '', 'h1')
+        break
+      case 'h2':
+        insertText('## ', '', 'h2')
+        break
+      case 'Bold':
+        insertText('**', '**', 'Bold')
+        break
+      case 'Italico':
+        insertText('*', '*', 'Italic')
+        break
+      case 'Link':
+        insertText('[', '](http://)', 'Link')
+        break
+      case 'Code block':
+        insertText('```', '```', 'Code Block')
+        break
+      case 'List Item':
+        insertText('- ', '', 'List Item')
+        break
+      case 'Horizontal Line':
+        insertText('\n---\n', '', 'Horizontal Line')
+        break
+      default:
+        insertText('', '', '')
+    }
+  }
   return (
     <Menu as="div" className="relative inline-block text-left drop-shadow-sm">
       <Menu.Button
@@ -47,9 +82,9 @@ export const Tollbar = () => {
                     active ? 'bg-blue-500 text-white' : 'bg-white text-black'
                   } ${stylesButton}`}
                   value="h1"
-                  onClick={(e) => setSelectedButton(e.target.value)}
+                  onClick={handleClick}
                 >
-                  <NewspaperIcon className="h-6 w-6 text-blue-500" />
+                  <NewspaperIcon className={styleIcons} />
                   h1
                 </button>
 
@@ -58,9 +93,9 @@ export const Tollbar = () => {
                     active ? 'bg-blue-500 text-white' : 'bg-white text-black'
                   } ${stylesButton}`}
                   value="h2"
-                  onClick={(e) => setSelectedButton(e.target.value)}
+                  onClick={handleClick}
                 >
-                  <PaintBrushIcon className="h-6 w-6 text-blue-500" />
+                  <PaintBrushIcon className={styleIcons} />
                   h2
                 </button>
                 <button
@@ -68,9 +103,9 @@ export const Tollbar = () => {
                     active ? 'bg-blue-500 text-white' : 'bg-white text-black'
                   } ${stylesButton}`}
                   value="Bold"
-                  onClick={(e) => setSelectedButton(e.target.value)}
+                  onClick={handleClick}
                 >
-                  <SparklesIcon className="h-6 w-6 text-blue-500" />
+                  <SparklesIcon className={styleIcons} />
                   Bold
                 </button>
                 <button
@@ -78,9 +113,9 @@ export const Tollbar = () => {
                     active ? 'bg-blue-500 text-white' : 'bg-white text-black'
                   } ${stylesButton}`}
                   value="Italico"
-                  onClick={(e) => setSelectedButton(e.target.value)}
+                  onClick={handleClick}
                 >
-                  <InformationCircleIcon className="h-6 w-6 text-blue-500" />
+                  <InformationCircleIcon className={styleIcons} />
                   Italico
                 </button>
                 <button
@@ -88,9 +123,9 @@ export const Tollbar = () => {
                     active ? 'bg-blue-500 text-white' : 'bg-white text-black'
                   } ${stylesButton}`}
                   value="Link"
-                  onClick={(e) => setSelectedButton(e.target.value)}
+                  onClick={handleClick}
                 >
-                  <LinkIcon className="h-6 w-6 text-blue-500" />
+                  <LinkIcon className={styleIcons} />
                   Link
                 </button>
                 <button
@@ -98,9 +133,9 @@ export const Tollbar = () => {
                     active ? 'bg-blue-500 text-white' : 'bg-white text-black'
                   } ${stylesButton}`}
                   value="Code block"
-                  onClick={(e) => setSelectedButton(e.target.value)}
+                  onClick={handleClick}
                 >
-                  <CommandLineIcon className="h-6 w-6 text-blue-500" />
+                  <CommandLineIcon className={styleIcons} />
                   Code block
                 </button>
                 <button
@@ -108,9 +143,9 @@ export const Tollbar = () => {
                     active ? 'bg-blue-500 text-white' : 'bg-white text-black'
                   } ${stylesButton}`}
                   value="List Item"
-                  onClick={(e) => setSelectedButton(e.target.value)}
+                  onClick={handleClick}
                 >
-                  <ListBulletIcon className="h-6 w-6 text-blue-500" />
+                  <ListBulletIcon className={styleIcons} />
                   List Item
                 </button>
                 <button
@@ -118,10 +153,20 @@ export const Tollbar = () => {
                     active ? 'bg-blue-500 text-white' : 'bg-white text-black'
                   } ${stylesButton}`}
                   value="Horizontal Line"
-                  onClick={(e) => setSelectedButton(e.target.value)}
+                  onClick={handleClick}
                 >
-                  <Bars3CenterLeftIcon className="h-6 w-6 text-blue-500" />
+                  <Bars3CenterLeftIcon className={styleIcons} />
                   Horizontal Line
+                </button>
+                <button
+                  className={`${
+                    active ? 'bg-blue-500 text-white' : 'bg-white text-black'
+                  } ${stylesButton}`}
+                  value=""
+                  onClick={handleClick}
+                >
+                  {/* <AdjustmentsHorizontal className={styleIcons} /> */}
+                  Default
                 </button>
               </>
             )}
