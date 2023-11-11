@@ -1,6 +1,7 @@
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import {
+  AdjustmentsHorizontalIcon,
   Bars3CenterLeftIcon,
   CommandLineIcon,
   InformationCircleIcon,
@@ -165,7 +166,7 @@ export const Tollbar = ({ insertText }) => {
                   value=""
                   onClick={handleClick}
                 >
-                  {/* <AdjustmentsHorizontal className={styleIcons} /> */}
+                  <AdjustmentsHorizontalIcon className={styleIcons} />
                   Default
                 </button>
               </>
