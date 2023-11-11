@@ -47,7 +47,7 @@ export const CardWithHtml = ({ textToHtml, typeToHtml }) => {
   return (
     <>
       <h1 className="font-bold text-[24px] text-zinc-900">Markdown em HTML</h1>
-      <div className="flex flex-col flex-wrap text-gray-50 gap-10 w-[100%] p-8 items-start bg-gray-950 rounded drop-shadow-md min-h-72 sm:max-w-[620px] md:max-w-[820px] lg:max-w-[1024px] ">
+      <div className="flex flex-col flex-wrap text-gray-50 gap-10 w-[100%] p-8 items-start bg-gray-950 rounded drop-shadow-md min-h-72 sm:max-w-[620px] md:max-w-[820px] lg:max-w-[1024px] overflow-hidden ">
         {styleTagSelection()}
       </div>
     </>

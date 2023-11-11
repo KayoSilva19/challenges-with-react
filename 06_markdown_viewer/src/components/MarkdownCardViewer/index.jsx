@@ -51,7 +51,7 @@ export const MarkdownCardViewer = () => {
         <Tollbar insertText={insertText} />
         <textarea
           rows="4"
-          className="rounded-md  border-none outline-none w-[100%] bg-gray-950 text-gray-500 p-6 font-medium text-[18px] resize-none h-[360px]"
+          className="rounded-md  border-none outline-none w-[100%] bg-gray-950 text-gray-500 p-6 font-medium text-[18px] resize-none h-[360px] overflow-hidden"
           value={text}
           ref={textAreaRef}
           onChange={handleChangeText}
