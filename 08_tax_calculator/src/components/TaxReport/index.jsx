@@ -1,7 +1,11 @@
 import { Card, CardActions, CardContent, Typography } from '@mui/material'
 
 export const TaxReport = ({ textData }) => {
-  const formatValue = textData.tax.toLocaleString('pt-br', {
+  const formatValueIncome = textData.income.toLocaleString('pt-br', {
+    style: 'currency',
+    currency: 'BRL',
+  })
+  const formatValueTax = textData.tax.toLocaleString('pt-br', {
     style: 'currency',
     currency: 'BRL',
   })
@@ -26,10 +30,10 @@ export const TaxReport = ({ textData }) => {
           Idade: {textData.age}
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          Renda: {textData.income}
+          Renda: {formatValueIncome}
         </Typography>
         <Typography variant="body1" color="red">
-          Imposto a pagar: {formatValue}
+          Imposto a pagar: {formatValueTax}
         </Typography>
       </CardContent>
     </Card>
