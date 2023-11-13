@@ -3,8 +3,6 @@ import { styled } from '@mui/material/styles'
 import FormGroup from '@mui/material/FormGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Switch from '@mui/material/Switch'
-import Stack from '@mui/material/Stack'
-import Typography from '@mui/material/Typography'
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -52,19 +50,17 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     borderRadius: 20 / 2,
   },
 }))
-
 export const Header = ({ handleThemeChange }) => {
   return (
     <header
-      className="h-[4rem] px-4 flex items-center justify-between
+      className="h-[4rem] px-16 flex items-center justify-between
     bg-zinc-50 text-zinc-900
     dark:bg-zinc-900 dark:text-zinc-50"
     >
       <span>Infinite Scroll</span>
       <FormGroup>
         <FormControlLabel
-          control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-          label="MUI switch"
+          control={<MaterialUISwitch sx={{ m: 1 }} />}
           onClick={handleThemeChange}
         />
       </FormGroup>
