@@ -33,7 +33,7 @@ export function Form() {
   const divInputDefaultStyles =
     'flex flex-col text-zinc-700 font-medium text-[18px]'
   const inputDefaultStyle =
-    'h-[60px] bg-gray-50 border border-zinc-700 rounded px-4 mt-4 '
+    'h-[60px] bg-gray-50 border border-zinc-700 rounded px-4 mt-2 '
   const errorStyle = 'text-red-500 font-normal text-sm mt-1'
   return (
     <form
