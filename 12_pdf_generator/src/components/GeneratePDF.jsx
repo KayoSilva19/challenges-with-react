@@ -28,8 +28,8 @@ export function GeneratePDF() {
 
     const documentDefinition = {
       content: [
-        { text: `Título: ${title}`, style: 'customStyle' }, // Mudou de Nome para Título
-        { text: `Descrição: ${description}`, style: 'customStyle' }, // Mudou de Idade para Descrição
+        { text: `Título: ${title}`, style: 'customStyle' },
+        { text: `Descrição: ${description}`, style: 'customStyle' },
         image ? { image, width: 150 } : {},
       ],
       styles: {
