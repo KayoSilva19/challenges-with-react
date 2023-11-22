@@ -14,6 +14,7 @@
  * post registration
  * post editing
  * deleting post
+ * Loading functions
 
 ## Technologies Used:
 
