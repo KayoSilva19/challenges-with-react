@@ -4,12 +4,14 @@ import { Header } from './components/Header'
 
 function App() {
   return (
-    <Container className="text-red-500">
+    <>
       <Header />
-      <Container>
-        <Outlet />
+      <Container className="text-red-500">
+        <Container>
+          <Outlet />
+        </Container>
       </Container>
-    </Container>
+    </>
   )
 }
 
