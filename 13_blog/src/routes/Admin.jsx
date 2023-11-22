@@ -40,11 +40,12 @@ export const Admin = () => {
           return (
             <Box
               key={postItem.id}
-              className="bg-neutral-950 rounded flex justify-between p-4 mb-4 mt-4 items-center"
+              className="bg-neutral-950 hover:bg-neutral-900 transition-all rounded flex justify-between p-4 mb-4 mt-4 items-center"
             >
               <h1 className="font-semibold text-[1.2rem]">{postItem.title}</h1>
               <Box className={`flex gap-4 justify-end mt-4`}>
                 <Link
+                  to={`/posts/edit/${postItem.id}`}
                   className={`py-2 px-4 bg-blue-500 font-semibold rounded hover:bg-blue-700 transition-all hover:scale-110 duration-300`}
                 >
                   Editar
