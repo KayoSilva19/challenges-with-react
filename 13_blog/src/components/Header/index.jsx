@@ -48,13 +48,13 @@ export function Header() {
                       <ListItemIcon>
                         {text === 'Home' ? (
                           <HouseSimple
-                            className="text-neutral-500 hover:text-purple-500 transition-colors"
+                            className="text-neutral-200 hover:text-purple-500 transition-colors"
                             size={28}
                             weight="fill"
                           />
                         ) : (
                           <Newspaper
-                            className="text-neutral-500 hover:text-purple-500 transition-colors"
+                            className="text-neutral-200 hover:text-purple-500 transition-colors"
                             size={28}
                             weight="fill"
                           />
@@ -62,7 +62,7 @@ export function Header() {
                       </ListItemIcon>
                       <ListItemText
                         primary={text}
-                        className="text-neutral-500 hover:text-purple-500 transition-colors"
+                        className="text-neutral-200 hover:text-purple-500 transition-colors"
                       />
                     </ListItemButton>
                   </Link>

@@ -6,8 +6,8 @@ function App() {
   return (
     <>
       <Header />
-      <Container className="text-red-500">
-        <Container>
+      <Container className="text-slate-50">
+        <Container className="mt-10">
           <Outlet />
         </Container>
       </Container>
