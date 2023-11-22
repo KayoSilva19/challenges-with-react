@@ -1,7 +1,12 @@
 import { Box, Button, Drawer } from '@mui/material'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { List as ListIcon, HouseSimple, Newspaper } from '@phosphor-icons/react'
+import {
+  List as ListIcon,
+  HouseSimple,
+  Newspaper,
+  PencilCircle,
+} from '@phosphor-icons/react'
 
 import List from '@mui/material/List'
 import Divider from '@mui/material/Divider'
@@ -69,6 +74,24 @@ export function Header() {
                 </ListItem>
               )
             })}
+            <Divider className="bg-neutral-200" />
+            <ListItem>
+              <Link to="/admin">
+                <ListItemButton>
+                  <ListItemIcon>
+                    <PencilCircle
+                      className="text-neutral-200 hover:text-purple-500 transition-colors"
+                      size={28}
+                      weight="fill"
+                    />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Gerenciar"
+                    className="text-neutral-200 hover:text-purple-500 transition-colors"
+                  />
+                </ListItemButton>
+              </Link>
+            </ListItem>
           </List>
         </Box>
       </Drawer>

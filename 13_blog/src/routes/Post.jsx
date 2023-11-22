@@ -29,7 +29,7 @@ export const Post = () => {
       {post.length === 0 ? (
         <Skeleton animation="wave" height={400} sx={{ bgcolor: 'grey.800' }} />
       ) : (
-        <PostComponent posts={post} />
+        <PostComponent posts={post} read={false} />
       )}
     </>
   )
