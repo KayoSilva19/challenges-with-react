@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 export function Post({ posts, edit = false, read = true }) {
   const disabled = read ? '' : 'hidden'
-  const editDisabled = edit ? '' : 'hidden'
   return (
     <Box className="mt-10 flex flex-col gap-6 ">
       {posts.map((post) => {
@@ -16,10 +15,10 @@ export function Post({ posts, edit = false, read = true }) {
               {post.title}
             </h2>
             <span className="text-[1.1rem]">{post.body}</span>
-            <Box className={` ${disabled} text-right mt-4`}>
+            <Box className={`${disabled} text-right mt-4`}>
               <Link
                 to={`/posts/${post.id}`}
-                className="bg-purple-500 py-2 px-4 font-semibold text-[1.1rem] rounded hover:bg-purple-600 transition-colors"
+                className={`bg-purple-500 py-2 px-4 font-semibold text-[1.1rem] rounded hover:bg-purple-600  transition-all`}
               >
                 Leia Mais
               </Link>
