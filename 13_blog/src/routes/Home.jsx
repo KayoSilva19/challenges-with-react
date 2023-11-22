@@ -19,7 +19,7 @@ export function Home() {
 
   useEffect(() => {
     getPosts()
-  })
+  }, [])
 
   return (
     <>

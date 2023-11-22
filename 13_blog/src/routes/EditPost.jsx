@@ -32,6 +32,8 @@ export const EditPost = () => {
     await blogFetch.put(`/posts/${id}`, {
       body: post,
     })
+
+    navigation('/admin')
   }
 
   useEffect(() => {

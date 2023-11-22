@@ -1,7 +1,7 @@
 import { Container, TextField, TextareaAutosize } from '@mui/material'
 import { blogFetch } from '../axios/config'
 import { useNavigate } from 'react-router-dom'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
 export function NewPost() {
   const navigate = useNavigate()

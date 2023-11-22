@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import { Link } from 'react-router-dom'
 
-export function Post({ posts, edit = false, read = true }) {
+export function Post({ posts, read = true }) {
   const disabled = read ? '' : 'hidden'
   return (
     <Box className="mt-10 flex flex-col gap-6 ">

@@ -22,7 +22,7 @@ export const Post = () => {
 
   useEffect(() => {
     getPost()
-  })
+  }, [])
 
   return (
     <>
