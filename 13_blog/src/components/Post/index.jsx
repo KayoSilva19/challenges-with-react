@@ -16,7 +16,7 @@ export function Post({ posts }) {
             <span className="text-[1.1rem]">{post.body}</span>
             <Box className="text-right mt-4">
               <Link
-                to={`/posts/${posts.id}`}
+                to={`/posts/${post.id}`}
                 className="bg-purple-500 py-2 px-4 font-semibold text-[1.1rem] rounded hover:bg-purple-600 transition-colors"
               >
                 Leia Mais

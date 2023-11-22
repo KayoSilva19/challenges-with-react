@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { blogFetch } from '../axios/config'
 import { useEffect, useState } from 'react'
 import { Post } from '../components/Post'
 import { Skeleton } from '@mui/material'
@@ -7,9 +7,7 @@ export function Home() {
   const [posts, setPosts] = useState([])
   const getPosts = async () => {
     try {
-      const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/posts',
-      )
+      const response = await blogFetch.get('/posts')
 
       const data = response.data
 
@@ -27,7 +25,7 @@ export function Home() {
     <>
       <h1 className="font-semibold text-[1.5rem]">Últimos Posts</h1>
       {posts.length === 0 ? (
-        <Skeleton animation="wave" height={150} sx={{ bgcolor: 'grey.800' }} />
+        <Skeleton animation="wave" height={400} sx={{ bgcolor: 'grey.800' }} />
       ) : (
         <Post posts={posts} />
       )}
